@@ -2,21 +2,19 @@ def calcularCosto(alto, ancho, profundo):
     volumen  = alto*ancho*profundo
     costo =  volumen*5
     if alto > 30:
-        costo += 2000
-    if costo > 10000:
-        iva = costo*0.19
-        costo += iva
+        costo +=2000
+    if costo > 10000: 
+        costo += (costo*0.19)
     return costo
+# print(calcularCosto(35, 10, 5))
 
 def costoTotal(numeroPaquetes, descuento):
-    costo, cont = 0, 0  
+    costo, cont = 0, 0 
     for n in range(numeroPaquetes):
-        cont+= 1
-        alto, ancho, profundo  = float(input()), float(input()), float(input())
+        cont += 1
+        alto, ancho, profundo = float(input()), float(input()), float(input())
         costo += calcularCosto(alto, ancho, profundo)
         if cont == numeroPaquetes:
-            des = descuento*costo/100
-            costo-= des
+            costo -= (descuento*costo/100)
     return(costo)
-
-print(costoTotal(2, 50))
+#print(costoTotal(2, 50))
